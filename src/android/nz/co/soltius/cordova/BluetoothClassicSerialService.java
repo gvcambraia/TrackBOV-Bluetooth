@@ -239,11 +239,11 @@ public class BluetoothClassicSerialService {
             // Get a BluetoothSocket for a connection with the given BluetoothDevice
             try {
                 if (secure) {
-                    // tmp = device.createRfcommSocketToServiceRecord(MY_UUID_SECURE);
-                    tmp = device.createRfcommSocketToServiceRecord(uuidConnect);
+                    tmp = device.createRfcommSocketToServiceRecord(UUID_SPP);
+                    //tmp = device.createRfcommSocketToServiceRecord(uuidConnect);
                 } else {
-                    //tmp = device.createInsecureRfcommSocketToServiceRecord(MY_UUID_INSECURE);
-                    tmp = device.createInsecureRfcommSocketToServiceRecord(uuidConnect);
+                    tmp = device.createInsecureRfcommSocketToServiceRecord(UUID_SPP);
+                    //tmp = device.createInsecureRfcommSocketToServiceRecord(uuidConnect);
                 }
             } catch (IOException e) {
                 Log.e(TAG, "Socket Type: " + mSocketType + "create() failed", e);
