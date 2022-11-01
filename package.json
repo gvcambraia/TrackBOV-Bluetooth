@@ -1,0 +1,39 @@
+{
+  "name": "cordova-plugin-bluetooth-classic-serial-port",
+  "version": "0.9.11",
+  "description": "Cordova Bluetooth Serial Port Profile Communication Plugin",
+  "cordova": {
+    "id": "cordova-plugin-bluetooth-classic-serial-port",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximBelov/cordova-plugin-bluetooth-classic-serial-port.git"
+  },
+  "keywords": [
+    "cordova",
+    "bluetooth",
+    "serial",
+    "arduino",
+    "ecosystem:cordova"
+  ],
+  "author": "Soltius New Zealand <steve.campbell@soltius.co.nz>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MaximBelov/cordova-plugin-bluetooth-classic-serial-port/issues"
+  },
+  "homepage": "https://github.com/MaximBelov/cordova-plugin-bluetooth-classic-serial-port#readme",
+  "contributors": [
+    {
+      "name": "Maxim Belov",
+      "email": "belov1988@gmail.com"
+    },
+    {
+      "name": "Kogulan Naskaran",
+      "email": "kogulan.baskaran@gmail.com"
+    }
+  ]
+}
