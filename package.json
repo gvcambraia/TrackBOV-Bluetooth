@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaximBelov/cordova-plugin-bluetooth-classic-serial-port.git"
+    "url": "git+https://github.com/TrackBOV-Bluetooth.git"
   },
   "keywords": [
     "cordova",
