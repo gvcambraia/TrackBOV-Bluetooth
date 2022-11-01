@@ -107,10 +107,11 @@ public class BluetoothClassicSerialService {
      * @param device  The BluetoothDevice to connect
      * @param secure Socket Security type - Secure (true) , Insecure (false)
      */
-    public synchronized void connect(BluetoothDevice device, UUID uuidConnect, boolean secure) {
+    public synchronized void connect(BluetoothDevice device, boolean secure) {
+   // public synchronized void connect(BluetoothDevice device, UUID uuidConnect, boolean secure) {
         if (D) Log.d(TAG, "connect to: " + device);
 
-        connectedUUID = uuidConnect.toString();
+       // connectedUUID = uuidConnect.toString();
 
         // Cancel any thread attempting to make a connection
         if (mState == STATE_CONNECTING) {
@@ -121,7 +122,8 @@ public class BluetoothClassicSerialService {
         if (mConnectedThread != null) {mConnectedThread.cancel(); mConnectedThread = null;}
 
         // Start the thread to connect with the given device
-        mConnectThread = new ConnectThread(device, uuidConnect, secure);
+        //mConnectThread = new ConnectThread(device, uuidConnect, secure);
+        mConnectThread = new ConnectThread(device, secure);
         mConnectThread.start();
         setState(STATE_CONNECTING);
     }
@@ -231,7 +233,8 @@ public class BluetoothClassicSerialService {
         private final BluetoothDevice mmDevice;
         private String mSocketType;
 
-        public ConnectThread(BluetoothDevice device, UUID uuidConnect, boolean secure) {
+        public ConnectThread(BluetoothDevice device, boolean secure) {
+       // public ConnectThread(BluetoothDevice device, UUID uuidConnect, boolean secure) {
             mmDevice = device;
             BluetoothSocket tmp = null;
             mSocketType = secure ? "Secure" : "Insecure";
@@ -239,9 +242,11 @@ public class BluetoothClassicSerialService {
             // Get a BluetoothSocket for a connection with the given BluetoothDevice
             try {
                 if (secure) {
-                    tmp = device.createRfcommSocketToServiceRecord(UUID_SPP);
+                    //tmp = device.createRfcommSocketToServiceRecord(MY_UUID_SECURE);
                     //tmp = device.createRfcommSocketToServiceRecord(uuidConnect);
+                    tmp = device.createRfcommSocketToServiceRecord(UUID_SPP);
                 } else {
+                    //tmp = device.createInsecureRfcommSocketToServiceRecord(MY_UUID_INSECURE);
                     tmp = device.createInsecureRfcommSocketToServiceRecord(UUID_SPP);
                     //tmp = device.createInsecureRfcommSocketToServiceRecord(uuidConnect);
                 }
