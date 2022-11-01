@@ -707,8 +707,8 @@ public class BluetoothClassicSerial extends CordovaPlugin {
         if (device != null) {
 
             for (int i = 0; i < uuidJSONArray.length(); i++) {
-                stringConnectUuid = uuidJSONArray.getString(i);
-                connectUuid = UUID.fromString(stringConnectUuid);
+                // stringConnectUuid = uuidJSONArray.getString(i);
+                // connectUuid = UUID.fromString(stringConnectUuid);
 
                 interfaceContext = connections.get(macAddress);
 
@@ -720,7 +720,8 @@ public class BluetoothClassicSerial extends CordovaPlugin {
 
                 if (interfaceContext != null) {
                     blueService = interfaceContext.bluetoothClassicSerialService;
-                    blueService.connect(device, connectUuid, secure);
+                    //blueService.connect(device, connectUuid, secure);
+                    blueService.connect(device, secure);
                 }
             }
 
